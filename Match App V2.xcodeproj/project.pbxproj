@@ -12,6 +12,9 @@
 		832CF8E22012DEEC007EE081 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832CF8E02012DEEC007EE081 /* Main.storyboard */; };
 		832CF8E42012DEEC007EE081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 832CF8E32012DEEC007EE081 /* Assets.xcassets */; };
 		832CF8E72012DEEC007EE081 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832CF8E52012DEEC007EE081 /* LaunchScreen.storyboard */; };
+		832CF8EF20140491007EE081 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832CF8EE20140491007EE081 /* CardModel.swift */; };
+		832CF8F1201407A6007EE081 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832CF8F0201407A6007EE081 /* Card.swift */; };
+		832CF8F320140BD6007EE081 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832CF8F220140BD6007EE081 /* CardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		832CF8E32012DEEC007EE081 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		832CF8E62012DEEC007EE081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		832CF8E82012DEEC007EE081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		832CF8EE20140491007EE081 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		832CF8F0201407A6007EE081 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		832CF8F220140BD6007EE081 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,9 @@
 			children = (
 				832CF8DC2012DEEC007EE081 /* AppDelegate.swift */,
 				832CF8DE2012DEEC007EE081 /* ViewController.swift */,
+				832CF8EE20140491007EE081 /* CardModel.swift */,
+				832CF8F0201407A6007EE081 /* Card.swift */,
+				832CF8F220140BD6007EE081 /* CardCollectionViewCell.swift */,
 				832CF8E02012DEEC007EE081 /* Main.storyboard */,
 				832CF8E32012DEEC007EE081 /* Assets.xcassets */,
 				832CF8E52012DEEC007EE081 /* LaunchScreen.storyboard */,
@@ -138,6 +147,9 @@
 			files = (
 				832CF8DF2012DEEC007EE081 /* ViewController.swift in Sources */,
 				832CF8DD2012DEEC007EE081 /* AppDelegate.swift in Sources */,
+				832CF8EF20140491007EE081 /* CardModel.swift in Sources */,
+				832CF8F320140BD6007EE081 /* CardCollectionViewCell.swift in Sources */,
+				832CF8F1201407A6007EE081 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
