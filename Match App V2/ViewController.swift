@@ -14,7 +14,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var model = CardModel()
     var cardArray = [Card]()
-    
+    var firstFlippedCardIndex:IndexPath?
     
     
     override func viewDidLoad() {
@@ -65,21 +65,78 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //card that the user selected
         let card = cardArray[indexPath.row]
         
-        if card.isFlipped == false {
+        if card.isFlipped == false && card.isMatched == false {
+            
             //flip the card
             cell.flip()
             
             card.isFlipped = true
+            
+            //Determine if its first card or 2nd card that is flipped over
+            
+            if firstFlippedCardIndex == nil {
+                
+                //this is the first card being flipped
+                firstFlippedCardIndex = indexPath
+            }
+            else {
+                
+                //this is the 2nd card being flipped
+                
+                //TOD: perform the matching logic
+                checkForMatches(indexPath)
+                
+            }
+        }
+       
+    } // end of did select method at
+
+    // MARK: - game logic methods
+    
+    func checkForMatches(_ secondFlippedCardIndex:IndexPath) {
+        
+        //get the cell for the two cards that were revealed
+        let cardOneCell = collectionView.cellForItem(at: firstFlippedCardIndex!) as? CardCollectionViewCell
+        
+        let cardTwoCell = collectionView.cellForItem(at: secondFlippedCardIndex) as? CardCollectionViewCell
+        
+        //get cards for the two cards that were revealed
+        let cardOne = cardArray[firstFlippedCardIndex!.row]
+        let cardTwo = cardArray[secondFlippedCardIndex.row]
+        
+        //compare the two cards
+        if cardOne.imageName == cardTwo.imageName {
+            
+            //its a match
+            
+            //set the status's of the cards
+            cardOne.isMatched = true
+            cardTwo.isMatched = true
+            //remove cards from grid
+            cardOneCell?.remove()
+            cardTwoCell?.remove()
         }
         else {
-            cell.flipBack()
+            // its not a match
             
-            card.isFlipped = false
+            //set the statuses of the cards
+            cardOne.isFlipped = false
+            cardTwo.isFlipped = false
+            
+            // flip both cards
+            cardOneCell?.flipBack()
+            cardTwoCell?.flipBack()
             
         }
+        
+        // tell collectionview to reload the cell of the first card if it is nil
+        if cardOneCell == nil {
+            collectionView.reloadItems(at: [firstFlippedCardIndex!])
+        }
+        //reset the property that tracks the first card flipped.
+        firstFlippedCardIndex = nil
     }
-
     
    
-}
+} // end of controller class
 

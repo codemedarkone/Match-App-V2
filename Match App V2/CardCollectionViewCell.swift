@@ -22,6 +22,19 @@ class CardCollectionViewCell: UICollectionViewCell {
         // keep track of the card that gets passed in
         self.card = card
         
+        // if card has been matched, make image views invisible
+        if card.isMatched == true {
+            backImageView.alpha = 0
+            frontImageView.alpha = 0
+            
+            return
+        }
+        else {
+            // if cards havent been match, make them visible.
+            backImageView.alpha = 1
+            frontImageView.alpha = 1
+        }
+        
         frontImageView.image = UIImage(named: card.imageName)
         
         //Determine if the card is in a flipped up state or flipped down state
@@ -45,7 +58,27 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     func flipBack() {
         
-        UIView.transition(from: frontImageView, to: backImageView, duration: 0.3, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+        
+        UIView.transition(from: self.frontImageView, to: self.backImageView, duration: 0.3, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
+            
+        }
+    }
+    
+    func remove() {
+        //removes both imageviews from being visible
+        backImageView.alpha = 0
+        
+        //TODO: animate it
+        UIView.animate(withDuration: 0.3, delay: 0.5, options: .curveEaseOut, animations: {
+            
+            self.frontImageView.alpha = 0
+            
+        }, completion: nil)
+        
+        
+        
+        
     }
     
     
